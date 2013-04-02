@@ -1,5 +1,6 @@
 ## Cross Browser Ajax File Uploader - blog.gaterjones.com
 
+Live demo at [http://blog.gaiterjones.com/cross-browser-ajax-php-file-uploader/](http://)
 
 ### Synopsis
 A simple PHP ajax file uploader using XHR (HTML5) and Flash (Uploadify). Can be used as a plugin to provide cross browser file upload functionality.

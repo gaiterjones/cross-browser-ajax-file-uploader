@@ -14,7 +14,7 @@ class config
 	// path to upload area - must have write access
 	const uploadFileCache='/home/www/medazzaland/cache';
 	// allowed file types
-	const allowedUploadFileTypes='jpg,jpeg,png,gif,mp4,avi,mov,mp3,mpo';
+	const allowedUploadFileTypes='txt,jpeg';
 	
 
 	public function __construct()
