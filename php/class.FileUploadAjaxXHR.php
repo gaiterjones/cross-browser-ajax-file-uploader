@@ -25,6 +25,9 @@
 
 //
 // File upload class using XML HTTP Requests and AJAX
+// this class is just for XHR uploads if you don't require flash
+// it is not required and is here just for completeness and stuff.
+//
 //
 class FileUploadAjaxXHR{
 
@@ -90,7 +93,7 @@ class FileUploadAjaxXHR{
 			
 		} else {
 		
-			throw new Exception('Upload '. $_uploadFileName. ' rejected - invalid file type. Supported image files are'). ' - '. $this->__config->get('allowedUploadFileTypes');
+			throw new Exception('Upload '. $_uploadFileName. ' rejected - invalid file type. Supported file types are'). ' - '. $this->__config->get('allowedUploadFileTypes');
 		}
 	
 		$this->set('output', $_output);

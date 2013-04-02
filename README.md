@@ -31,9 +31,12 @@ Update the path to fileupload.php in the two ajax function in fileUpload.js to m
 
 Look at the code in demo.html and copy the XHR and Flash divs as well as the required javascript and css files to your own html.
 
+The image resize library is included to allow you to resize images as they are uploaded. Specify the image size in the ajax get request, e.g. uploadresize=600x600.
+
 
 ## Acknowledgements
 http://www.uploadify.com/ for the Flash uploader.
+Jarrod Oberto for the image library.
 
 ## License
 

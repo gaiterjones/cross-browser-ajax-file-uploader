@@ -107,7 +107,7 @@ class FileUpload{
 		} else {
 		
 			unlink($_tempFileName);
-			throw new Exception('Upload rejected - invalid file type. Supported image files are'. ' - '. $this->__config->get('allowedUploadFileTypes'));
+			throw new Exception('Upload rejected - invalid file type. Supported file types are'. ' - '. $this->__config->get('allowedUploadFileTypes'));
 		}
 	
 		$this->set('output', $_output);
