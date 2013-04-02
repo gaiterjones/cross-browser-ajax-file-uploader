@@ -1,0 +1,70 @@
+/*-------------------------
+	XHR HTML5 upload
+--------------------------*/
+#file_upload{
+	display:none;
+	position: relative;
+	width:150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#file_upload .file_upload_xhr_upload { 
+    background: #eee; 
+    border-radius: 4px; 
+    border: 1px solid #ccc;
+    width: 132px;
+    padding: 2px;
+    margin: 0px;
+    position: relative;
+    cursor: pointer;
+}
+
+#file_upload .file_upload_xhr_upload:hover {background: #fff; border-color: #ddd; }
+    
+#file_upload .file_upload_xhr_upload input {
+    cursor: pointer;
+    display: block;
+    position:absolute;
+    top:0;
+    left: 0;
+    /* start of transparency styles */
+    opacity:0;
+    -moz-opacity:0;
+    filter:alpha(opacity:0);
+    /* end of transparency styles */
+    background: red;
+    z-index:2; /* bring the real upload interactivity up front */
+    width:100%;
+    height: 100%;
+}
+#file_upload .file_upload_xhr_upload:hover input {
+    display: block;
+}
+
+#file_upload_image {
+    position: relative;
+	padding: 5px 0px 10px 2px;
+}
+
+#file_upload_progress p
+{
+	font: 12px Helvetica, Arial, sans-serif;
+	display: block;
+	width: 132px;
+	padding: 2px 2px;
+	margin: 2px 0;
+	border: 1px inset #446;
+	border-radius: 5px;
+	background: #eee url("progress.png") 100% 0 repeat-y;
+}
+
+#file_upload_progress p.success
+{
+	background: #0c0 none 0 0 no-repeat;
+}
+
+#file_upload_progress p.failed
+{
+	background: #c00 none 0 0 no-repeat;
+}

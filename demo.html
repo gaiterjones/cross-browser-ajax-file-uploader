@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cross Browser AJAX File Upload Demo</title>
+  <meta name="description" content="Cross Browser AJAX File Upload Demo">
+  <meta name="author" content="gaiterjones">
+  <link rel="stylesheet" href="lib/xhr/css/style.css?v=1.0">
+  <link rel="stylesheet" href="lib/flash/css/style.css?v=1.0">  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
+  <script src="lib/js/fileUpload.js"></script>
+  <script src="lib/flash/js/jquery.uploadify-3.1.min.js"></script>  
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style>
+	#wrapper{
+	position: relative;
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	}
+	#content{
+	position: relative;
+	width:75%;
+	margin-left: auto;
+	margin-right: auto;
+	}
+	#toggle_uploaders{
+	position: absolute;
+	}
+	.info, .success, .warning, .error, .validation {
+	border: 1px solid;
+	margin: 5px auto;
+	padding:15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font: 14px Helvetica, Arial, sans-serif;
+	font-weight:bold;
+	}
+	.info {
+	color: #00529B;
+	background-color: #BDE5F8;
+	background-image: url('lib/images/info.png');
+	}
+	.success {
+	color: #4F8A10;
+	background-color: #DFF2BF;
+	background-image:url('lib/images/success.png');
+	}
+	.warning {
+	color: #9F6000;
+	background-color: #FEEFB3;
+	background-image: url('lib/images/warning.png');
+	}
+	.error {
+	color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('lib/images/error.png');
+	}
+	#message_container{
+		width: 400px;
+		margin-left: auto;	
+		margin-right: auto;		
+	}	
+	#error, #success{
+		visibility:hidden;	
+		position: absolute;
+		width: 400px;
+	}
+  </style>
+</head>
+<body>
+
+	<script>
+		jQuery(document).ready(function(){
+			$("#toggle_uploaders").click(function(){
+				$('#file_upload_flash').toggle();
+				$('#file_upload').toggle();
+			});	
+		});
+	</script>
+
+	  <div id="wrapper">
+		  <div id="content">
+			  <h1>Cross Browser AJAX File Upload Demo</h1>
+			  
+					<p>
+						This is a demonstration of a cross browser AJAX file upload solution
+						using XHR (HTML5) and Flash (Uploadify). Flash or HTML5 will be autodetected
+						based on browser capability. Allowed upload filetypes are configurable.
+					</p>
+				  
+					<!-- Demo toggler -->
+					<div>	
+						<input type="button" value="Toggle XHR/Flash" id="toggle_uploaders">
+					</div>
+					
+					<!-- XHR HTML5 uploader -->
+					<div id="file_upload">
+					
+						<div class="file_upload_xhr_upload" title="Upload A File">
+							<img id="file_upload_image" height="128" width="128" src="lib/xhr/images/file-upload-icon.png">
+							<input type="file" name="file_upload_filename" id="file_upload_filename" />
+						</div>
+						<div id="file_upload_progress"></div>
+						
+						<!-- These can be used for translation of the loading/complete messages if required -->
+						<input type="hidden" id ="file_upload_loading" value="Loading..." />
+						<input type="hidden" id ="file_upload_complete" value="Complete" />
+						
+					</div>
+					
+					<!-- Flash uploader -->
+					<div id="file_upload_flash">
+					
+						<input type="file" name="file_upload_flash_uploader" id="file_upload_flash_uploader" /><img id="file_upload_flash_loading" src="lib/flash/img/ajax-loader.gif" alt="working.." />
+						
+					</div>
+					
+					<div id="message_container">
+						<div id="success" class="success">&nbsp;</div>
+						<div id="error" class="error">&nbsp;</div>
+					</div>
+	  
+		  </div>
+	  </div>
+	  
+</body>
+</html>
