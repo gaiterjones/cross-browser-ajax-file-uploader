@@ -2,7 +2,7 @@
 
 
 ### Synopsis
-A simple ajax file uploader using XHR (HTML5) and Flash (Uploadify). Can be used as a plugin to provide cross browser file upload functionality.
+A simple PHP ajax file uploader using XHR (HTML5) and Flash (Uploadify). Can be used as a plugin to provide cross browser file upload functionality.
 
 ### Version
 ***
