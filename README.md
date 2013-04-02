@@ -18,16 +18,21 @@ Copy the files to your www folder.
 
 ### Configuration
 
-Edit the configuration file
+Edit the filea
 
 	config/applicationConfig.php
+	lib/js/fileUpload.js
 	
 
-Add the path to your upload folder, must be writeable. Add a comma seperated list of supported file types.
+Add the path to your upload folder - must be writeable. Add a comma seperated list of supported file types in the applicationConfig file.
 
-Look at the code in demo.html and copy the XHR and Flash divs to your site as well as the required javascript and css files.
+Update the path to fileupload.php in the two ajax function in fileUpload.js to match the installation path of the code. You may also need to update the path to the uploadify swf too.
 
-Test!
+Look at the code in demo.html and copy the XHR and Flash divs as well as the required javascript and css files to your own html.
+
+
+## Acknowledgements
+http://www.uploadify.com/ for the Flash uploader.
 
 ## License
 
