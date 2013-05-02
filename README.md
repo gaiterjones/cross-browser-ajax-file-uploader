@@ -1,4 +1,4 @@
-## Cross Browser Ajax File Uploader - blog.gaterjones.com
+## Cross Browser Ajax File Uploader - gaiterjones.com
 
 Live demo at [http://blog.gaiterjones.com/cross-browser-ajax-php-file-uploader/](http://)
 
