@@ -15,7 +15,9 @@ class config
 	const uploadFileCache='/home/www/medazzaland/cache';
 	// allowed file types
 	const allowedUploadFileTypes='txt,doc';
-	
+	const emailEnabled=true;
+	const emailTo='files@gaiterjones.com';
+	const emailFrom='files@gaiterjones.com';	
 
 	public function __construct()
 	{
@@ -66,7 +68,7 @@ class config
 }
 
 function autoloader($class) {
-
+	if ($class==='Memcache') { return; }
 	require_once 'php/class.' . $class . '.php';
 }
 

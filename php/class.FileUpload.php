@@ -27,13 +27,14 @@
 class FileUpload{
 
 	protected $__;
-	protected $__config;	
+	protected $__config;
+	protected $__t; 
 
 	public function __construct($_variables) {
 
 		$this->loadConfig();
-	
 		$this->loadClassVariables($_variables);
+		$this->loadTranslator();		
 		$this->fileUpload();
 
 	}
@@ -51,16 +52,23 @@ class FileUpload{
 		$_tempFileName=$this->get('tempfilename');
 		$_origFileName=$this->get('origfilename');
 		
-
-		if ($_xhrAjaxUpload) // get the file from xhr upload
+		try
 		{
-				// file from RAW post data
-				file_put_contents(
-					$_tempFileName,
-					file_get_contents('php://input')
-				);
-			
+			if ($_xhrAjaxUpload) // get the file from xhr upload
+			{
+					// file from RAW post data
+					file_put_contents(
+						$_tempFileName,
+						file_get_contents('php://input')
+					);
+				
+			}
 		}
+		catch (Exception $e)
+	    {
+		    throw new Exception('Upload error - '. $e->getMessage());
+
+	    }		
 		
 		$_targetFile=$this->targetFile($_origFileName); // get target filename
 		
@@ -96,6 +104,25 @@ class FileUpload{
 					unset($_obj);
 			}
 			
+			// send email with attachment
+			$_emailEnabled=$this->__config->get('emailEnabled');
+			if ($_emailEnabled)
+			{
+				$_fileType=$this->get('filetype');
+				
+				$_obj=new Email(array(
+				  'to'  => $this->__config->get('emailTo'),
+				  'from' => $this->__config->get('emailFrom'),
+				  'subject' => 'Uploaded '. $_fileType. ' Attached',
+				  'body' => 'Uploaded '. $_fileType. ' Attached',
+				  'cc' => '',
+				  'bcc' => '',
+				  'reference' => '',
+				  'attachments' => $_targetFile
+				));
+				unset ($_obj);
+			}	
+			
 			$this->set('success', true);
 			$this->set('filename', basename($_targetFile));
 			
@@ -107,7 +134,7 @@ class FileUpload{
 		} else {
 		
 			unlink($_tempFileName);
-			throw new Exception('Upload rejected - invalid file type. Supported file types are'. ' - '. $this->__config->get('allowedUploadFileTypes'));
+			throw new Exception($this->__t->__('Invalid file type. Allowed files are'). ' - '. $this->__config->get('allowedUploadFileTypes'));
 		}
 	
 		$this->set('output', $_output);
@@ -146,8 +173,22 @@ class FileUpload{
 		
 		$_allowedUploadFileTypes=explode(',',$this->__config->get('allowedUploadFileTypes'));
 		$this->set('alloweduploadfiletypes',$_allowedUploadFileTypes);
+		
+		// default filetype
+		$this->set('filetype','file');
+		// default language
+		$this->set('languagecode','en');
+		
 	
 	}
+	
+	private function loadTranslator()
+	{
+		// load app translator			
+		$_languageCode=$this->get('languagecode');
+		if (empty($_languageCode)) { $_languageCode='en';}
+		$this->__t=new Translator($_languageCode);
+	}	
 
 	private function loadClassVariables($_variables)
 	{

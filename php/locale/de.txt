@@ -1,0 +1,10 @@
+Trade Certificate=Gewerbeschein
+Upload=Hochladen
+Please upload your Trade Certificate here.=Bitte Ihren Gewerbeschein hier hochladen.
+Please upload your buisiness certificate here.=Bitte Ihren Gewerbeschein hier hochladen.
+Please upload your Gewerbeschein here.=Bitte Ihren Gewerbeschein hier hochladen.
+Your Gewerbeschein has been received.=Ihren Gewerbescheine wurde hochgeladen.
+Your Trade Certificate has been received.=Ihren Gewerbescheine wurde hochgeladen.
+Invalid file type. Allowed files are=Ung&uuml;ltiger Dateityp. Erlaubt Dateien:
+Loading...=wird geladen...
+Complete=Fertig
