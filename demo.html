@@ -68,6 +68,13 @@
 		position: absolute;
 		width: 400px;
 	}
+	span.close {
+		display: none;
+		float:right;
+		text-decoration:underline;
+		cursor: pointer;
+	}
+	
   </style>
 </head>
 <body>
@@ -83,25 +90,34 @@
 
 	  <div id="wrapper">
 		  <div id="content">
-			  <h1>Cross Browser AJAX File Upload Demo</h1>
+			  <h1>Cross Browser Compatible AJAX File Upload Demo</h1>
 			  
 					<p>
 						This is a demonstration of a cross browser AJAX file upload solution
 						using XHR (HTML5) and Flash (Uploadify). Flash or HTML5 will be autodetected
-						based on browser capability. Allowed upload filetypes are configurable.
+						based on browser capability. Allowed upload filetypes are configurable. For
+						the demo you can toggle between Flash and XHR using the toggle button.
+						You can optionally email the upload as an attachment where required.
 					</p>
+					<p>
+						Tested with Firefox, Chrome, IE 9,10, Safari - Desktop, i/Phone/Pad/Pod.
+					</p>
+
+					<div style="height: 15px; clear: both;"></div>
 				  
 					<!-- Demo toggler -->
 					<div>	
 						<input type="button" value="Toggle XHR/Flash" id="toggle_uploaders">
 					</div>
 					
+					<div style="height: 50px; clear: both;"></div>
+					
 					<!-- XHR HTML5 uploader USE THIS DIV IN YOUR CODE -->
 					<div id="file_upload">
 					
 						<div class="file_upload_xhr_upload" title="Upload A File">
 							<img id="file_upload_image" height="128" width="128" src="lib/xhr/images/file-upload-icon.png">
-							<input type="file" name="file_upload_filename" id="file_upload_filename" />
+								<input type="file" name="file_upload_filename" id="file_upload_filename" />
 						</div>
 						<div id="file_upload_progress"></div>
 						
@@ -120,8 +136,8 @@
 					</div>
 					
 					<div id="message_container">
-						<div id="success" class="success">&nbsp;</div>
-						<div id="error" class="error">&nbsp;</div>
+						<div id="success" class="success message">&nbsp;</div>
+						<div id="error" class="error message">&nbsp;</div>
 					</div>
 	  
 		  </div>
