@@ -68,7 +68,7 @@ class Application
 		{
 			if ($_ajaxClass) { // ajax class set
 
-				$_ajaxRequest=new ajaxRequest($_ajaxClass);
+				$_ajaxRequest=new Application_Ajax_Request($_ajaxClass);
 				header('Content-type: text/json');
 					echo $_ajaxRequest;
 						unset($_ajaxRequest);

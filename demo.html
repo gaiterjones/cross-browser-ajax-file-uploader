@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Cross Browser AJAX File Upload Demo</title>
-  <meta name="description" content="Cross Browser AJAX File Upload Demo">
+  <title>HTML5 Cross Browser AJAX File Upload Demo</title>
+  <meta name="description" content="HTML5 Cross Browser AJAX File Upload Demo">
   <meta name="author" content="gaiterjones">
   <link rel="stylesheet" href="lib/xhr/css/style.css?v=1.0">
   <link rel="stylesheet" href="lib/flash/css/style.css?v=1.0">  
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
-  <script src="lib/js/fileUpload.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+  <script src="lib/js/Application_File_Upload.js"></script>
   <script src="lib/flash/js/jquery.uploadify-3.1.min.js"></script>  
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -90,7 +90,7 @@
 
 	  <div id="wrapper">
 		  <div id="content">
-			  <h1>Cross Browser Compatible AJAX File Upload Demo</h1>
+			  <h1>HTML5 Cross Browser Compatible AJAX File Upload Demo</h1>
 			  
 					<p>
 						This is a demonstration of a cross browser AJAX file upload solution
@@ -102,6 +102,9 @@
 					<p>
 						Tested with Firefox, Chrome, IE 9,10, Safari - Desktop, i/Phone/Pad/Pod.
 					</p>
+					<p>
+						Source : <a href="https://github.com/gaiterjones/cross-browser-ajax-file-uploader">https://github.com/gaiterjones/cross-browser-ajax-file-uploader</a>
+					</p>					
 
 					<div style="height: 15px; clear: both;"></div>
 				  
@@ -136,8 +139,7 @@
 					</div>
 					
 					<div id="message_container">
-						<div id="success" class="success message">&nbsp;</div>
-						<div id="error" class="error message">&nbsp;</div>
+						<div id="notification" class="message">&nbsp;</div>
 					</div>
 	  
 		  </div>

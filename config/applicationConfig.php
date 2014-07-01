@@ -12,7 +12,7 @@ class config
 {
 
 	// path to upload area - must have write access
-	const uploadFileCache='/home/www/medazzaland/cache';
+	const uploadFileCache='/home/www/medazzaland/cache/';
 	// allowed file types
 	const allowedUploadFileTypes='txt,doc';
 	const emailEnabled=true;
@@ -67,10 +67,41 @@ class config
 	
 }
 
-function autoloader($class) {
-	if ($class==='Memcache') { return; }
-	require_once 'php/class.' . $class . '.php';
+// PAJ PHP class autoloader
+//	-- e.g. Application_Class_Name1_Name2 loads > ./php/Class/Name1/Name2.php
+//
+//
+function classAutoLoader($_class) {
+
+	$_applicationRoot='php/';
+	
+		$_includeArray=explode('_',$_class);
+		$_includeFilename=$_includeArray[count($_includeArray) -1]. '.php';
+		$_includePath=$_applicationRoot;
+		
+		if (count($_includeArray) > 1)
+		{
+			foreach ($_includeArray as $_folder)
+			{
+				if ($_folder === 'Application') { continue; }
+				$_includePath=$_includePath. $_folder. '/';
+			}
+			
+			$_includePath=$_includePath.$_includeFilename;
+			
+		} else {
+			
+			if ($_includeArray[0] === 'Application')
+			{
+				$_includePath=$_includePath. $_includeArray[0]. '.php';
+			} else {
+				$_includePath= $_applicationRoot. 'class.' . $_class . '.php';			
+			}
+		}
+
+	require_once $_includePath;
+	
 }
 
-spl_autoload_register('autoloader');
+spl_autoload_register('classAutoLoader');
 ?>

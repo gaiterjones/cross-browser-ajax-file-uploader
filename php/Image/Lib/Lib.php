@@ -160,7 +160,7 @@
    # ========================================================================#
 
 
-class imageLib
+class Application_Image_Lib
 {
 
     private $fileName;

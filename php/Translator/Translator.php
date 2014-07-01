@@ -23,7 +23,7 @@
  *
  */
  
-class Translator {
+class Application_Translator {
 
     protected $__;
 	protected $__cache;
