@@ -5,143 +5,67 @@
   <title>HTML5 Cross Browser AJAX File Upload Demo</title>
   <meta name="description" content="HTML5 Cross Browser AJAX File Upload Demo">
   <meta name="author" content="gaiterjones">
+  
   <link rel="stylesheet" href="lib/xhr/css/style.css?v=1.0">
-  <link rel="stylesheet" href="lib/flash/css/style.css?v=1.0">  
+  <link rel="stylesheet" href="lib/css/style.css?v=1.0">
+
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+  <script src='lib/xhr/plugin/d3/d3.min.js'></script>
+  <script src="lib/js/Application_Events.js"></script>
+  <script src="lib/js/Application_Main.js"></script>
   <script src="lib/js/Application_File_Upload.js"></script>
-  <script src="lib/flash/js/jquery.uploadify-3.1.min.js"></script>  
+  
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <style>
-	#wrapper{
-	position: relative;
-	width:100%;
-	margin-left: auto;
-	margin-right: auto;
-	}
-	#content{
-	position: relative;
-	width:50%;
-	margin-left: auto;
-	margin-right: auto;
-	}
-	#toggle_uploaders{
-	position: absolute;
-	}
-	.info, .success, .warning, .error, .validation {
-	border: 1px solid;
-	margin: 5px auto;
-	padding:15px 10px 15px 50px;
-	background-repeat: no-repeat;
-	background-position: 10px center;
-	font: 14px Helvetica, Arial, sans-serif;
-	font-weight:bold;
-	}
-	.info {
-	color: #00529B;
-	background-color: #BDE5F8;
-	background-image: url('lib/images/info.png');
-	}
-	.success {
-	color: #4F8A10;
-	background-color: #DFF2BF;
-	background-image:url('lib/images/success.png');
-	}
-	.warning {
-	color: #9F6000;
-	background-color: #FEEFB3;
-	background-image: url('lib/images/warning.png');
-	}
-	.error {
-	color: #D8000C;
-	background-color: #FFBABA;
-	background-image: url('lib/images/error.png');
-	}
-	#message_container{
-		width: 400px;
-		margin-left: auto;	
-		margin-right: auto;		
-	}	
-	#error, #success{
-		visibility:hidden;	
-		position: absolute;
-		width: 400px;
-	}
-	span.close {
-		display: none;
-		float:right;
-		text-decoration:underline;
-		cursor: pointer;
-	}
-	
-  </style>
 </head>
 <body>
-
-	<script>
-		jQuery(document).ready(function(){
-			$("#toggle_uploaders").click(function(){
-				$('#file_upload_flash').toggle();
-				$('#file_upload').toggle();
-			});	
-		});
-	</script>
-
 	  <div id="wrapper">
 		  <div id="content">
 			  <h1>HTML5 Cross Browser Compatible AJAX File Upload Demo</h1>
 			  
 					<p>
 						This is a demonstration of a cross browser AJAX file upload solution
-						using XHR (HTML5) and Flash (Uploadify). Flash or HTML5 will be autodetected
-						based on browser capability. Allowed upload filetypes are configurable. For
-						the demo you can toggle between Flash and XHR using the toggle button.
+						using XHR (HTML5). Allowed upload filetypes are configurable.
 						You can optionally email the upload as an attachment where required.
 					</p>
 					<p>
-						Tested with Firefox, Chrome, IE 9,10, Safari - Desktop, i/Phone/Pad/Pod.
+						Tested with Firefox, Chrome, IE 9,10,11 Safari - Desktop, i/Phone/Pad/Pod.
 					</p>
 					<p>
 						Source : <a href="https://github.com/gaiterjones/cross-browser-ajax-file-uploader">https://github.com/gaiterjones/cross-browser-ajax-file-uploader</a>
 					</p>					
 
-					<div style="height: 15px; clear: both;"></div>
-				  
-					<!-- Demo toggler -->
-					<div>	
-						<input type="button" value="Toggle XHR/Flash" id="toggle_uploaders">
-					</div>
-					
 					<div style="height: 50px; clear: both;"></div>
 					
 					<!-- XHR HTML5 uploader USE THIS DIV IN YOUR CODE -->
-					<div id="file_upload">
-					
-						<div class="file_upload_xhr_upload" title="Upload A File">
-							<img id="file_upload_image" height="128" width="128" src="lib/xhr/images/file-upload-icon.png">
-								<input type="file" name="file_upload_filename" id="file_upload_filename" />
+					<div id="file_upload_wrapper">
+
+						<div id="file_upload">
+							
+							<div id="file_upload_radial_progress_wrapper">
+								<div id="file_upload_radial_progress" style="display: none;"></div>
+							</div>
+							
+							<div id="file_upload_control_wrapper">
+								<div class="file_upload_xhr_upload clickable" title="Upload A File"><i class="center fa fa-upload fa-2x"></i><input id="file_upload_filename" name="file_upload_filename" type="file" /></div>
+							</div>
+							
+						<span id="file_upload_commentary"></span> <span id="file_upload_speed" ></span>	
+						
 						</div>
-						<div id="file_upload_progress"></div>
-						
-						<!-- These can be used for translation of the loading/complete messages if required -->
-						<input type="hidden" id ="file_upload_loading" value="Loading..." />
-						<input type="hidden" id ="file_upload_complete" value="Complete" />
-						<input type="hidden" id ="demo_message" value="All files uploaded from this demo will be deleted!" />
-						
-					</div>
+					</div>					
 					
-					<!-- Flash uploader USE THIS DIV IN YOUR CODE  -->
-					<div id="file_upload_flash">
-					
-						<input type="file" name="file_upload_flash_uploader" id="file_upload_flash_uploader" /><img id="file_upload_flash_loading" src="lib/flash/img/ajax-loader.gif" alt="working.." />
-						
-					</div>
-					
+					<!-- notifications -->
 					<div id="message_container">
-						<div id="notification" class="message">&nbsp;</div>
-					</div>
-	  
+						<div id="notification" class="message"> </div>
+					</div>	
+
+
+					<script src="lib/js/Application_File_Upload_Progress.js"></script>
+ 
 		  </div>
 	  </div>
 	  

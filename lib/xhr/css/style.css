@@ -4,7 +4,7 @@
 #file_upload{
 	display:none;
 	position: relative;
-	width:150px;
+	width:180px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -13,11 +13,13 @@
     background: #eee; 
     border-radius: 4px; 
     border: 1px solid #ccc;
-    width: 132px;
+    width: 70px;
     padding: 2px;
     margin: 0px;
     position: relative;
     cursor: pointer;
+	margin-left: auto;
+	margin-right: auto;	
 }
 
 #file_upload .file_upload_xhr_upload:hover {background: #fff; border-color: #ddd; }
@@ -42,29 +44,46 @@
     display: block;
 }
 
+#file_upload .dragOver {
+	border: 2px dotted #CCC;
+}
+
 #file_upload_image {
     position: relative;
 	padding: 5px 0px 10px 2px;
 }
 
-#file_upload_progress p
+#file_upload_control_wrapper
 {
-	font: 12px Helvetica, Arial, sans-serif;
-	display: block;
-	width: 132px;
-	padding: 2px 2px;
-	margin: 2px 0;
-	border: 1px inset #446;
-	border-radius: 5px;
-	background: #eee url("progress.png") 100% 0 repeat-y;
+    position: absolute;
+	top: 140px;
+	left: 50px;
+}
+#file_upload_radial_progress_wrapper
+{
+	width: 180px;
+	height: 180px;
+
+}
+#file_upload_radial_progress {
+	position: absolute;
+	left: -30px;
 }
 
-#file_upload_progress p.success
-{
-	background: #0c0 none 0 0 no-repeat;
+#file_upload_radial_progress .progress-meter text {
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+	color: #000;
+	fill: #000;
+    font-weight: bold;
 }
 
-#file_upload_progress p.failed
+#file_upload_radial_progress .background {
+	fill: #ccc;
+}
+
+.center
 {
-	background: #c00 none 0 0 no-repeat;
+	text-align: center;
+	width: 100%;
 }

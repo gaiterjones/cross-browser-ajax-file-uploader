@@ -106,6 +106,7 @@ class Application_File_Upload {
 			
 			// send email with attachment
 			$_emailEnabled=$this->__config->get('emailEnabled');
+			
 			if ($_emailEnabled)
 			{
 				$_fileType=$this->get('filetype');

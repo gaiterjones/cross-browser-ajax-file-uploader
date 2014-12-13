@@ -1,0 +1,82 @@
+/* 
+
+CSS
+
+*/
+
+#wrapper{
+position: relative;
+width:100%;
+margin-left: auto;
+margin-right: auto;
+}
+
+#content{
+position: relative;
+width:50%;
+margin-left: auto;
+margin-right: auto;
+}
+
+/* 
+
+UTILITIES
+
+*/
+.clickable:hover {
+	cursor: pointer;
+}
+
+.selected {
+    border: 1px solid;
+}
+
+.info, .success, .warning, .error, .validation {
+border: 1px solid;
+margin: 5px auto;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+font: 14px Helvetica, Arial, sans-serif;
+font-weight:bold;
+}
+.info {
+color: #00529B;
+background-image: url('../images/info.png');
+}
+.success {
+color: #4F8A10;
+background-image:url('../images/success.png');
+}
+.warning {
+color: #9F6000;
+background-image: url('../images/warning.png');
+}
+.error {
+color: #D8000C;
+background-image: url('../images/error.png');
+}
+
+#message_container{
+	max-width: 350px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#notification {
+	position: relative;
+	top: 50px;
+}
+
+#error, #success{
+	visibility:hidden;	
+	position: absolute;
+	width: 100%;
+}
+span.close {
+	display: none;
+	float:right;
+	text-decoration:underline;
+	cursor: pointer;
+}
+

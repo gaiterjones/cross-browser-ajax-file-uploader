@@ -15,7 +15,7 @@ class config
 	const uploadFileCache='/home/www/medazzaland/cache/';
 	// allowed file types
 	const allowedUploadFileTypes='txt,doc';
-	const emailEnabled=true;
+	const emailEnabled=false;
 	const emailTo='files@gaiterjones.com';
 	const emailFrom='files@gaiterjones.com';	
 
